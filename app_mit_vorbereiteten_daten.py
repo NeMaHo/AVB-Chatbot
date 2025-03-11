@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import json
@@ -8,6 +9,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 
+api_key = st.secrets["OPENAI_API_KEY"]
 
 def get_text_chunks(text):
     text_splitter = CharacterTextSplitter(separator="\n", chunk_size=128, chunk_overlap=25, length_function=len)
